@@ -1,0 +1,127 @@
+package com.sericulture.commercialmarket.model.api.marketauction;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sericulture.commercialmarket.model.api.ResponseBody;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
+import java.util.List;
+
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
+public class CommercialMarketForPrintResponse extends ResponseBody {
+    private String farmerNumber;
+    private String farmerFirstName;
+    private String farmerMiddleName;
+    private String farmerLastName;
+    private String farmerAddress;
+    private String farmerTaluk;
+    private String farmerVillage;
+    private String ifscCode;
+    private String accountNumber;
+    private String reelerLicense;
+    private String reelerName;
+    private String reelerAddress;
+    private int allottedLotId;
+    private String auctionDate;
+    private float lotWeight;
+    private double farmerMarketFee;
+    private double reelerMarketFee;
+    private double traderMarketFee;
+    private float lotSoldOutAmount;
+    private float bidAmount;
+    private double reelerCurrentBalance;
+    private Float farmerEstimatedWeight;
+    private List<Float> lotWeightDetail;
+    private String marketName;
+    private String race;
+    private String source;
+    private float tareWeight;
+    private String serialNumber;
+    private BigDecimal marketAuctionId;
+    private String marketNameKannada;
+    private String farmerNameKannada;
+    private String externalUnitName;
+    private String externalUnitAddress;
+    private String externalUnitLicenseNumber;
+    private String externalUnitNumber;
+    private String externalUnitOrganisationName;
+    private Date auctionDateWithTime;
+    private String farmerMobileNumber;
+    private String reelerMobileNumber;
+    private String reelerNumber;
+    private String reelerNameKannada;
+    private double farmerAmount;
+    private double reelerAmount;
+    private double traderAmount;
+    private List<Integer> smallBinList;
+    private List<Integer> bigBinList;
+    private String loginName;
+    private String fruitsId;
+    private String fatherNameKan;
+    private String traderFirstName;
+    private String traderMiddleName;
+    private String traderLastName;
+    private String traderFatherName;
+    private String traderAddress;
+    private String traderSilkType;
+    private float traderLicenseFee;
+    private String traderMobileNumber;
+    private String traderArnNumber;
+    private String traderLicenseNumber;
+    private String traderStateNameInKannada;
+    private String traderDistrictNameInKannada;
+    private String traderApplicationNumber;
+    private String traderLicenseChallanNumber;
+    private String reelerMobile;
+    private String reelerBankName;
+    private String reelerBranchName;
+    private String reelerAccountNumber;
+    private String reelerIfscCode;
+    private String reelerFatherName;
+    private String sadodLotNumber;
+    private String godownName;
+    private String lotGroupageId;
+    private String lgBuyerId;
+    private String lgBuyerType;
+    private String lgLotWeight;
+    private String lgAmount;
+    private Float lgMarketFee;
+    private String lgSoldOutAmount;
+    private Float lgMarketFeeForReeling;
+    private Float lgMarketFeeForSeed;
+    private String lgSoldOutAmountReeling;
+    private String lgSoldOutAmountSeed;
+    private String lgLotWeightReeling;
+    private String lgLotWeightSeed;
+    private String lgReelingAmount;
+    private String lgSeedAmount;
+    private String lgAverageYield;
+    private String lgNoOfDfl;
+    private String lgInvoiceNumber;
+    private String lgLotParentLevel;
+    private String lgAuctionDate;
+    private String lgBuyerName;
+    private String unitDetails;
+    private String noOfBags;
+    private String formNo;
+    private String silkQuality;
+    private String silkType;
+    private Float approximateEstimatedWeight;
+    private String testDate;
+    private Long noOfCocoonTakenForExamination;
+    private Long noOfDFLFromFc;
+    private Long noOfCocoonPerKg;
+    private String remainingCocoon;
+
+    private List<Buyer> buyerList;
+
+
+}

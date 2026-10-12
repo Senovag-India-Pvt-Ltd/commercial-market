@@ -8,7 +8,7 @@
 		<version>3.1.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sericulture.marketandauction</groupId>
+	<groupId>com.sericulture.commercialmarket</groupId>
 	<artifactId>commercial-market</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>commercial-market</name>
