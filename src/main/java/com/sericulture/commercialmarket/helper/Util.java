@@ -26,6 +26,14 @@ public final class Util {
 
     static DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
+    // Reused across calls instead of being recompiled via DateTimeFormatter.ofPattern(...)
+    // on every invocation of objectToDate/objectToDateTime below. These helpers are invoked
+    // once per row inside report-generation loops (e.g. ReelerAuctionService.getReelerCurrentBalance
+    // and getReelerTransaction), so recompiling the pattern per call wastes work on every row
+    // of every report request.
+    private static final DateTimeFormatter DATE_ONLY_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     @Autowired
     ApplicationContext applicationContext;
 
@@ -64,7 +72,7 @@ public final class Util {
         } else if (date instanceof LocalDate) {
             return (LocalDate) date;
         } else if (date instanceof String) {
-            return LocalDate.parse(((String) date).split(" ")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            return LocalDate.parse(((String) date).split(" ")[0], DATE_ONLY_FORMATTER);
         } else {
             throw new IllegalArgumentException("Unsupported date type");
         }
@@ -75,13 +83,13 @@ public final class Util {
             return null;
         }
         if (date instanceof java.sql.Date) {
-            return ((java.sql.Date) date).toLocalDate().atStartOfDay().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            return ((java.sql.Date) date).toLocalDate().atStartOfDay().format(DATE_TIME_FORMATTER);
         } else if (date instanceof java.util.Date) {
-            return (((java.util.Date) date).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            return (((java.util.Date) date).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).format(DATE_TIME_FORMATTER);
         } else if (date instanceof LocalDate) {
-            return ((LocalDate) date).atStartOfDay().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            return ((LocalDate) date).atStartOfDay().format(DATE_TIME_FORMATTER);
         } else if (date instanceof String) {
-            return LocalDateTime.parse((String) date, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            return LocalDateTime.parse((String) date, DATE_TIME_FORMATTER).format(DATE_TIME_FORMATTER);
         } else {
             throw new IllegalArgumentException("Unsupported date type");
         }

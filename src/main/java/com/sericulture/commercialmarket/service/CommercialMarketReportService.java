@@ -32,7 +32,6 @@ import org.springframework.stereotype.Service;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -612,10 +611,6 @@ public class CommercialMarketReportService {
 
     public ResponseEntity<?> getDashboardReport(DashboardReportRequest dashboardReportRequest) {
         ResponseWrapper rw = ResponseWrapper.createWrapper(List.class);
-
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
-        String formattedDateTime = now.format(formatter);
 
         EntityManager entityManager = null;
         EntityManager entityManager2 = null;
