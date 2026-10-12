@@ -29,4 +29,19 @@ public class ReelerAuctionController {
 
     }
 
+    @PostMapping("/getReelerCurrentBalance")
+    public ResponseEntity<?> getReelerCurrentBalance(@RequestBody ReelerCurrentBalanceRequest reelerCurrentBalanceRequest){
+        return reelerAuctionService.getReelerCurrentBalance(reelerCurrentBalanceRequest);
+    }
+
+    @PostMapping("/getReelerTransaction")
+    public ResponseEntity<?> getReelerTransaction(@RequestBody ReelerTransactionRequest reelerTransactionRequest){
+        return reelerAuctionService.getReelerTransaction(reelerTransactionRequest);
+    }
+
+    @PostMapping("/getReelerCreditDetailsAllMarket")
+    public ResponseEntity<?> getReelerCreditDetailsAllMarket(@RequestBody ReelerTransactionRequest reelerTransactionRequest){
+        return reelerAuctionService.getReelerCreditDetailsAllMarket(reelerTransactionRequest);
+    }
+
 }
